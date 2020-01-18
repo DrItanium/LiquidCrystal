@@ -54,7 +54,11 @@ public:
 		uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3);
   LiquidCrystal(uint8_t rs, uint8_t enable,
 		uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3);
-
+private:
+  LiquidCrystal(uint8_t fourbitmode, uint8_t rs, uint8_t rw, uint8_t enable,
+	    uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3,
+	    uint8_t d4, uint8_t d5, uint8_t d6, uint8_t d7);
+public:
   void init(uint8_t fourbitmode, uint8_t rs, uint8_t rw, uint8_t enable,
 	    uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3,
 	    uint8_t d4, uint8_t d5, uint8_t d6, uint8_t d7);
@@ -100,6 +104,8 @@ protected:
   constexpr auto getInitialized() const noexcept { return _initialized; }
   constexpr auto getNumLines() const noexcept { return _numlines; }
   constexpr auto getRowOffsets() const noexcept { return _row_offsets; }
+private:
+  void internalInit(uint8_t fourbitmode) noexcept;
 private:
   uint8_t _rs_pin; // LOW: command.  HIGH: character.
   uint8_t _rw_pin; // LOW: write to LCD.  HIGH: read from LCD.
