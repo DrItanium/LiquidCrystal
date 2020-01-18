@@ -93,18 +93,10 @@ protected:
   virtual void write4bits(uint8_t);
   virtual void write8bits(uint8_t);
   virtual void pulseEnable();
-  virtual void digitalWrite(int, int) noexcept;
 protected:
-  constexpr auto getRSPin() const noexcept { return _rs_pin; }
-  constexpr auto getRWPin() const noexcept { return _rw_pin; }
-  constexpr auto getEnablePin() const noexcept { return _enable_pin; }
-  constexpr auto getDataPins() const noexcept { return _data_pins; }
-  constexpr auto getDisplayFunction() const noexcept { return _displayfunction; }
-  constexpr auto getDisplayControl() const noexcept { return _displaycontrol; }
-  constexpr auto getDisplayMode() const noexcept { return _displaymode; }
-  constexpr auto getInitialized() const noexcept { return _initialized; }
-  constexpr auto getNumLines() const noexcept { return _numlines; }
-  constexpr auto getRowOffsets() const noexcept { return _row_offsets; }
+  // interface to the outside "world" 
+  virtual void digitalWrite(int, int) noexcept;
+  virtual void pinMode(int, int) noexcept;
 private:
   void internalInit(uint8_t fourbitmode) noexcept;
 private:

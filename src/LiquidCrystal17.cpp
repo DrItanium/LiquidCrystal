@@ -341,3 +341,6 @@ void LiquidCrystal17::write8bits(uint8_t value) {
 void LiquidCrystal17::digitalWrite(int pin, int value) noexcept {
     ::digitalWrite(pin, value);
 }
+void LiquidCrystal17::pinMode(int pin, int mode) noexcept {
+    ::pinMode(pin, mode);
+}
